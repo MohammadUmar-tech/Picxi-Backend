@@ -20,6 +20,19 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    profileImage:{
+      type:String
+    },
+    bio:{
+      type:String
+    },
+    gender:{
+      type:String,
+      enum:["Male","Female"]
+    },
+    profession:{
+      type:String
+    },
     followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     posts: [
       {
