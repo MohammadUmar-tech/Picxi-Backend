@@ -1,7 +1,8 @@
 import express from 'express'
-import { login, logOut, singUp } from '../controllers/auth.controller.js'
+import { authMiddleware } from '../middlewares/auth.middleware.js'
+import { getUser } from '../controllers/user.cotroller.js'
 const router=express.Router()
 
-router.post('/signup',singUp)
-router.post('/login',login)
-router.get('/logout',logOut)
+router.get('/current',authMiddleware,getUser)
+
+export default router

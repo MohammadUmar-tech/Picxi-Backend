@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    passwod: {
+    password: {
       type: String,
       required: true,
     },
@@ -35,9 +35,23 @@ const userSchema = new mongoose.Schema(
     ],
     loops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Loop" }],
     story :{
-        Type:mongoose.Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Story"
+    },
+    resetOtp:{
+      type:String,
+    },
+    isOptVerified:{
+      type:Boolean,
+      default:false
+    },
+    OptExpires:{
+      type:Date,
     }
+
+
+
+
   },
   { timestamps: true },
 );
