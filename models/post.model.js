@@ -4,10 +4,10 @@ const postSchema=new mongoose.Schema({
     author:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-        require:true
+        required:true
     },
     mediaType:{
-        tyep:String,
+        type:String,
         enum:["image","video"],
         required:true
     },
@@ -15,7 +15,7 @@ const postSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    captins:{
+    caption:{
         type:String
     },
     likes:[
@@ -25,15 +25,16 @@ const postSchema=new mongoose.Schema({
         }
     ],
     comments:[
-        {
+       { author:{
             type:mongoose.Schema.Types.ObjectId,
             ref:"User"
+        },
+        message:{
+            type:String
+        }
         }
     ],
 
 },{timestamps:true})
-
-
-
 
 export const postModel=mongoose.model('Post',postSchema)

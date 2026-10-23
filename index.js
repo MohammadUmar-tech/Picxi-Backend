@@ -7,6 +7,8 @@ import dbConnection from "./config/connectDb.js";
 import cookieParser from "cookie-parser";
 import authRouter from './routes/auth.routes.js'
 import userRouter from './routes/user.routes.js'
+import postRouter from './routes/post.routes.js'
+import loopRouter from './routes/loop.routes.js'
 const app =express()
 const port=process.env.PORT||5000
 await dbConnection(process.env.MONGODB_URL)
@@ -19,6 +21,8 @@ app.get('/',async(req,res)=>{
 })
 app.use('/api/auth',authRouter)
 app.use('/api/users',userRouter)
+app.use('/api/posts',postRouter)
+app.use('/api/loops',loopRouter)
 app.listen(port,()=>{
     console.log(`Server Started At Port ${port}`);
 })

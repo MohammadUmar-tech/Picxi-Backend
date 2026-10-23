@@ -7,7 +7,7 @@ export const getUser=async(req,res)=>{
         const userId=req.user._id;
         const user=await userModel.findOne({
             _id:userId
-        })
+        }).populate("posts loops")
         if(!user){
             return res.status(400).json({message:'User Not found'})
         }
@@ -68,7 +68,7 @@ export const editProfile=async(req,res)=>{
 export const getProfile=async (req,res)=>{
    try {
      const userName=req.params.userName
-     const user=await userModel.findOne({userName}).select("-password")
+     const user=await userModel.findOne({userName}).select("-password").populate("posts")
      if(!user){
          return res.status(400).json({message:'User Not Found'})
      }

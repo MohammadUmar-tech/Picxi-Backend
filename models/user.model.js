@@ -61,10 +61,6 @@ const userSchema = new mongoose.Schema(
     OptExpires:{
       type:Date,
     }
-
-
-
-
   },
   { timestamps: true },
 );
