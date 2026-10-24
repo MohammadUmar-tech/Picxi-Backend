@@ -20,9 +20,9 @@ app.get('/',async(req,res)=>{
     res.send('Hello we are Going to Build Picxi');
 })
 app.use('/api/auth',authRouter)
-app.use('/api/users',userRouter)
-app.use('/api/posts',postRouter)
-app.use('/api/loops',loopRouter)
+app.use('/api/user',userRouter)
+app.use('/api/post',postRouter)
+app.use('/api/loop',loopRouter)
 app.listen(port,()=>{
     console.log(`Server Started At Port ${port}`);
 })
